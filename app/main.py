@@ -1,18 +1,13 @@
-from typing import List, Dict, Optional
-
-
 class Person:
-    people: Dict[str, "Person"] = {}
+    people = {}
 
     def __init__(self, name: str, age: int) -> None:
         self.name = name
         self.age = age
-        self.wife: Optional["Person"] = None
-        self.husband: Optional["Person"] = None
         Person.people[name] = self
 
 
-def create_person_list(people_dicts: List[Dict]) -> List[Person]:
+def create_person_list(people_dicts):
     person_list = [
         Person(p["name"], p["age"])
         for p in people_dicts
